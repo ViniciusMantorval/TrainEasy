@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Estatísticas - TrainEasy</title>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="estatisticas.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <h1>Estatísticas Gerais</h1>
+
+  <div class="cards">
+    <div class="card" id="total-treinamentos">Treinamentos: ...</div>
+    <div class="card" id="media-conclusao">Conclusão média: ...</div>
+    <div class="card" id="total-funcionarios">Funcionários: ...</div>
+    <div class="card" id="total-pontos">Pontos distribuídos: ...</div>
+  </div>
+
+  <h2>Tabela de Treinamentos</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Título</th>
+        <th>Participantes</th>
+        <th>Concluíram</th>
+        <th>Média Pontuação</th>
+        <th>Conclusão (%)</th>
+      </tr>
+    </thead>
+    <tbody id="tabela-treinamentos"></tbody>
+  </table>
+
+  <h2>Gráfico de Conclusão por Treinamento</h2>
+  <canvas id="graficoConclusao"></canvas>
+
+  <script src="estatisticas.js"></script>
+</body>
+</html>

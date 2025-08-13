@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Criação de Treinamentos - TrainEasy</title>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="criar-treinamento.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="user-section">
+      <span>Olá, Equipe RH!</span>
+      <div class="notification-icon">
+        🔔<span class="notif-count">5</span>
+      </div>
+    </div>
+    <div class="logo">TrainEasy</div>
+    <div class="theme-toggle">
+      <label>
+        🌙<input type="checkbox" id="toggleDark" />
+      </label>
+    </div>
+  </header>
+
+  <div class="container">
+    <aside class="sidebar">
+      <nav>
+        <ul>
+          <li>➕ Criação de Treinamentos</li>
+          <li>📂 Meus Treinamentos</li>
+          <li>📚 Gerenciar Cursos</li>
+          <li>👥 <a href="../controle-funcionarios/controle-funcionarios.html" style="text-decoration: none; color: inherit;">Controle de Funcionários</a></li>
+          <li>🏅 Ranking Interno</li>
+          <li>📈 Relatórios e Estatísticas</li>
+          <li>🛒 Mercado de Pontos</li>
+          <li>⚙️ Configurações da Empresa</li>
+        </ul>
+      </nav>
+    </aside>
+
+    <main class="main-content">
+      <section class="painel">
+        <h2>➕ Criação de Treinamentos</h2>
+        <form id="form-treinamento">
+          <div class="form-group">
+            <label for="nome">Nome do Treinamento</label>
+            <input type="text" id="nome" name="nome" placeholder="Escolha o nome que deseja ser mostrado para quem tiver o acesso" required />
+          </div>
+
+          <div class="form-group">
+            <label for="descricao">Descrição</label>
+            <textarea id="descricao" name="descricao" placeholder="Escreva uma descrição breve sobre o que se trata o treinamento" required></textarea>
+          </div>
+
+          <div class="form-group">
+            <label for="data_inicio">Data de Início</label>
+            <input type="date" id="data_inicio" name="data_inicio" required />
+          </div>
+
+          <div class="form-group">
+            <label for="data_encerramento">Data de Término</label>
+            <input type="date" id="data_encerramento" name="data_encerramento" required />
+          </div>
+
+          <button type="submit">Criar Treinamento</button>
+
+        </form>
+        <form id="formVideo" enctype="multipart/form-data">
+          <label for="video">Selecione um vídeo:</label>
+          <input type="file" id="video" name="video" accept="video/*" required />
+          <button type="submit">Enviar</button>
+        </form>
+
+        <p id="conteudo"></p>
+        
+        <div class="painel painel-treinamento">
+          <h2>Detalhes do Treinamento</h2>
+          <form id="form-treinamento">
+            <div class="form-group introducao">
+              <label for="introducao">Introdução</label>
+              <textarea id="introducao" name="introducao"></textarea>
+            </div>
+            
+            <div class="form-group">
+              <label for="topicos">Tópicos Principais</label>
+              <div id="topicos">
+                <!-- Tópicos serão inseridos aqui -->
+              </div>
+            </div>
+        
+            <div class="form-group">
+              <label for="quiz">Quiz</label>
+              <div id="quiz">
+                <!-- Perguntas serão inseridas aqui -->
+              </div>
+            </div>
+        
+            <button type="submit">Salvar Treinamento</button>
+          </form>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script src="criar-treinamento.js"></script>
+</body>
+</html>

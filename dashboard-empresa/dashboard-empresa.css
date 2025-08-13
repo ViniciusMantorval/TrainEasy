@@ -1,0 +1,136 @@
+:root {
+    --bg-color: #f9f9f9;
+    --text-color: #333;
+    --card-bg: #fff;
+    --accent: #007bff;
+  }
+  
+  body.dark {
+    --bg-color: #1e1e1e;
+    --text-color: #f9f9f9;
+    --card-bg: #2a2a2a;
+    --accent: #66aaff;
+  }
+  
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+  
+  body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    transition: background-color 0.3s, color 0.3s;
+  }
+  
+  header.topbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 60px;
+    background-color: var(--card-bg);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 1.5rem;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    z-index: 1000;
+  }
+  
+  .logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--accent);
+  }
+  
+  .user-section {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+  
+  .notification-icon {
+    position: relative;
+    font-size: 1.2rem;
+    cursor: pointer;
+  }
+  
+  .notif-count {
+    position: absolute;
+    top: -6px;
+    right: -10px;
+    background: red;
+    color: white;
+    border-radius: 50%;
+    padding: 2px 6px;
+    font-size: 12px;
+  }
+  
+  .theme-toggle input {
+    margin-left: 5px;
+    cursor: pointer;
+  }
+  
+  .container {
+    display: flex;
+    margin-top: 60px; /* altura do header */
+  }
+  
+  .sidebar {
+    position: fixed;
+    top: 60px;
+    left: 0;
+    width: 250px;
+    height: calc(100vh - 60px);
+    background-color: var(--card-bg);
+    padding: 1rem;
+    border-right: 2px solid #ccc;
+    overflow-y: auto;
+  }
+  
+  .sidebar nav ul {
+    list-style: none;
+  }
+  
+  .sidebar nav ul li {
+    margin-bottom: 1rem;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+  }
+  
+  .sidebar nav ul li:hover {
+    transform: translateX(5px);
+    color: var(--accent);
+  }
+  
+  .main-content {
+    margin-left: 250px;
+    padding: 2rem;
+    flex: 1;
+  }
+  
+  .painel {
+    background-color: var(--card-bg);
+    padding: 1.5rem;
+    border-radius: 10px;
+    margin-bottom: 2rem;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+  }
+  
+  .painel:hover {
+    transform: scale(1.01);
+  }
+  
+  h2 {
+    margin-bottom: 0.5rem;
+    color: var(--accent);
+  }
+  
+  p {
+    font-size: 1rem;
+    line-height: 1.5;
+  }

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Painel do Funcionário - TrainEasy</title>
+  <link rel="stylesheet" href="dashboard-funcionario.css" />
+</head>
+<body>
+  <div class="container">
+    <aside class="sidebar">
+      <nav>
+        <img src="img/TrainEasy-removebg-preview.png" alt="img_logo">
+        <ul>
+          <li>🔔 Notificações</li>
+          <li>🏅 Ranking da Empresa</li>
+          <li>💼 Carteira de Pontos</li>
+          <li>🛒 <a href="../mercado-de-pontos/mercado-de-pontos.html" style="text-decoration: none; color: inherit;">Mercado de Pontos</a></li>
+          <li>🙋 Meu Perfil</li>
+          <li>🌍 Ranking Global</li>
+        </ul>
+      </nav>
+      <div class="theme-toggle">
+        <label>
+          🌙
+          <input type="checkbox" id="toggleDark" />
+        </label>
+      </div>
+    </aside>
+
+    <main class="main-content">
+      <header class="topbar">
+        <div class="logo">TrainEasy</div>
+        <div class="user-section">
+          <div class="notification-icon">🔔<span class="notif-count">3</span></div>
+          <div class="profile-icon">🙋</div>
+        </div>
+      </header>
+
+      <section class="cursos-section">
+        <h3>📚 Treinamentos Pendentes</h3>
+        <div class="cursos-container">
+          <div class="curso-card" style="background-color: #ffcc00;">
+            <h4>Segurança no Trabalho</h4>
+            <p class="curso-desc">Aprenda sobre os procedimentos essenciais para garantir a segurança no ambiente de trabalho.</p>
+            <p class="progresso">Progresso: 40%</p>
+            <p class="data-inicio">Início: 01/01/2025</p>
+            <button>Acessar</button>
+          </div>
+          <div class="curso-card" style="background-color: #5bc0de;">
+            <h4>Ética Corporativa</h4>
+            <p class="curso-desc">Entenda a importância da ética nas relações de trabalho e como aplicá-la no seu dia a dia profissional.</p>
+            <p class="progresso">Progresso: 0%</p>
+            <p class="data-inicio">Início: 15/02/2025</p>
+            <button>Acessar</button>
+          </div>
+          <div class="curso-card" style="background-color: #28a745;">
+            <h4>Uso de Equipamentos</h4>
+            <p class="curso-desc">Saiba como operar os equipamentos de maneira segura e eficiente no ambiente de trabalho.</p>
+            <p class="progresso">Progresso: 85%</p>
+            <p class="data-inicio">Início: 10/03/2025</p>
+            <button>Acessar</button>
+          </div>
+          <div class="curso-card" style="background-color: #ffc107;">
+            <h4>Integração da Empresa</h4>
+            <p class="curso-desc">Conheça a história, missão e valores da empresa, além de aprender sobre sua cultura organizacional.</p>
+            <p class="progresso">Progresso: 100%</p>
+            <p class="data-inicio">Início: 20/01/2025</p>
+            <button>Acessar</button>
+          </div>
+          
+        </div>
+        </div>
+      </section>
+    </main>
+  </div>
+  <script src="dashboard-funcionario.js"></script>
+</body>
+</html>

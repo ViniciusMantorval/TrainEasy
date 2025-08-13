@@ -1,0 +1,306 @@
+/* Estilos principais */
+body {
+  font-family: "DM Sans", sans-serif;
+  background-color: #f9f9f9;
+  color: #333;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  display: flex;
+}
+
+.sidebar {
+  position: fixed;
+  top: 60px;
+  left: 0;
+  width: 250px;
+  height: calc(100vh - 60px);
+  background-color: var(--card-bg);
+  padding: 1rem;
+  border-right: 2px solid #ccc;
+  overflow-y: auto;
+}
+
+.sidebar nav ul {
+  list-style: none;
+}
+
+.sidebar nav ul li {
+  margin-bottom: 1rem;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.sidebar nav ul li:hover {
+  transform: translateX(5px);
+  color: var(--accent);
+}
+
+.main-content {
+  margin-left: 250px; /* Espaço para a barra lateral */
+  padding: 2rem;
+  display: flex;
+  justify-content: center; /* Centraliza o conteúdo */
+  align-items: flex-start; /* Alinha o conteúdo no topo */
+  min-height: 100vh;
+  width: 100%; /* Garante que o conteúdo ocupe todo o restante da área */
+}
+
+.painel {
+  width: 100%;
+  max-width: 800px; /* Tamanho máximo para centralizar melhor */
+  background-color: #fff;
+  padding: 2rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  margin-top: 20px; /* Espaço entre os painéis */
+  box-sizing: border-box;
+}
+
+/* Ajuste no formulário */
+#form-treinamento {
+  display: block; /* Usando o estilo de blocos para evitar conflito */
+}
+
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+.form-group label {
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+  padding: 0.8rem;
+  font-size: 1rem;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+form button {
+  background-color: #007bff;
+  color: white;
+  padding: 0.8rem 1.5rem;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1.2rem;
+  margin-top: 1rem;
+}
+
+form button:hover {
+  background-color: #0056b3;
+}
+
+/* Estilo do Header */
+.topbar {
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem;
+  background-color: #fff;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.user-section {
+  display: flex;
+  align-items: center;
+}
+
+.notification-icon {
+  position: relative;
+  margin-right: 1rem;
+}
+
+.notif-count {
+  position: absolute;
+  top: -8px;
+  right: -12px;
+  background: red;
+  color: white;
+  border-radius: 50%;
+  padding: 2px 6px;
+  font-size: 12px;
+}
+
+.logo {
+  font-size: 1.8rem;
+  font-weight: bold;
+}
+
+.theme-toggle {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+/* Estilos de modo escuro */
+body.dark {
+  background-color: #1e1e1e;
+  color: #f9f9f9;
+}
+
+body.dark .topbar {
+  background-color: #2a2a2a;
+}
+
+body.dark .sidebar {
+  background-color: #2a2a2a;
+}
+
+body.dark .form-group input,
+body.dark .form-group select,
+body.dark .form-group textarea,
+body.dark .painel {
+  background-color: #333;
+  color: #f9f9f9;
+  border: 1px solid #444;
+}
+
+/* Estilo da seção de treinamento */
+.painel-treinamento {
+  width: 100%;
+  max-width: 800px; /* Tamanho máximo para centralizar melhor */
+  background-color: #fff;
+  padding: 2rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  margin-top: 20px; /* Espaço entre os painéis */
+  box-sizing: border-box;
+}
+
+.painel-treinamento h2 {
+  font-size: 1.8rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
+#form-treinamento {
+  display: block; /* Usando o estilo de blocos para evitar conflito */
+}
+
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+.form-group label {
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+  padding: 0.8rem;
+  font-size: 1rem;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+form button {
+  background-color: #007bff;
+  color: white;
+  padding: 0.8rem 1.5rem;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1.2rem;
+  margin-top: 1rem;
+}
+
+form button:hover {
+  background-color: #0056b3;
+}
+
+/* Modo escuro - ajustes na seção de treinamento */
+body.dark .painel-treinamento {
+  background-color: #333;
+  color: #f9f9f9;
+  border: 1px solid #444;
+}
+
+body.dark #form-treinamento .form-group input,
+body.dark #form-treinamento .form-group select,
+body.dark #form-treinamento .form-group textarea {
+  background-color: #444;
+  color: #f9f9f9;
+  border: 1px solid #555;
+}
+
+body.dark form button {
+  background-color: #0056b3;
+}
+
+body.dark form button:hover {
+  background-color: #003366;
+}
+
+/* --------------------Estilo para editor de tópicos e quiz----------------------------------- */
+#editor-conteudo h3 {
+  font-size: 1.4rem;
+  margin-top: 2rem;
+  color: var(--accent, #007bff);
+}
+
+.topico,
+.pergunta,
+.introducao {
+  margin-bottom: 2rem;
+  padding: 1rem;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  background-color: #f1f1f1;
+}
+
+body.dark .topico,
+body.dark .pergunta,
+body.dark .introducao {
+  background-color: #2c2c2c;
+  border-color: #555;
+}
+
+.topico label,
+.pergunta label {
+  font-weight: 600;
+  margin-top: 0.5rem;
+  display: block;
+}
+
+.topico input,
+.pergunta input,
+.topico textarea,
+.pergunta textarea {
+  width: 100%;
+  margin-bottom: 0.5rem;
+  padding: 0.7rem;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  font-size: 1rem;
+  box-sizing: border-box;
+}
+
+.pergunta input[type="text"] {
+  margin-bottom: 0.3rem;
+}
+
+
+textarea {
+  width: 100%;
+  min-height: 120px;
+  resize: vertical;
+  padding: 10px;
+  font-size: 1rem;
+  font-family: inherit;
+  line-height: 1.4;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  box-sizing: border-box;
+}

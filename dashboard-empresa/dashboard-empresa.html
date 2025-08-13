@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dashboard da Empresa - TrainEasy</title>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="dashboard-empresa.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="user-section">
+      <span>Olá, Equipe RH!</span>
+      <div class="notification-icon">
+        🔔<span class="notif-count">5</span>
+      </div>
+    </div>
+    <div class="logo">TrainEasy</div>
+    <div class="theme-toggle">
+      <label>
+        🌙<input type="checkbox" id="toggleDark" />
+      </label>
+    </div>
+  </header>
+
+  <div class="container">
+    <aside class="sidebar">
+      <nav>
+        <ul>
+          <li>➕ <a href="../criar-treinamento/criar-treinamento.html" style="text-decoration: none; color: inherit;">Criação de Treinamentos</a></li>
+          <li>📂 Meus Treinamentos</li>
+          <li>📚 Gerenciar Cursos</li>
+          <li>👥 <a href="../controle-funcionarios/controle-funcionarios.html" style="text-decoration: none; color: inherit;">Controle de Funcionários</a></li>
+          <li>🏅 <a href="../ranking-funcionario/ranking-funcionario.html" style="text-decoration: none; color: inherit;">Ranking Interno</a></li>
+          <li>📈 <a href="../estatisticas/estatisiticas.html" style="text-decoration: none; color: inherit;">Relatórios e Estatísticas</a></li>
+          <li>🛒 <a href="../criar-recompensa/criar-recompensa.html" style="text-decoration: none; color: inherit;">Mercado de Pontos</a></li>
+          <li>⚙️ Configurações da Empresa</li>
+        </ul>
+      </nav>
+    </aside>
+
+    <main class="main-content">
+      <a href="../criar-treinamento/criar-treinamento.html" style="text-decoration: none; color: inherit;">
+        <section class="painel">
+          <h2>➕ Criação de Treinamentos</h2>
+          <p>Adicione novos treinamentos, definindo seus detalhes, pontos atribuídos e outros parâmetros essenciais.</p>
+       </section>
+      </a>
+      <section class="painel">
+        <h2>📂 Meus Treinamentos</h2>
+        <p>Acompanhe os treinamentos já criados pela empresa, com possibilidade de edição e visualização de desempenho.</p>
+      </section>
+
+      <a href="../gerenciar-recompensas/gerenciar-recompensas.html" style="text-decoration: none; color: inherit;"><section class="painel">
+        <h2>🛒 Mercado de Pontos</h2>
+        <p>Defina as recompensas disponíveis e gerencie os pontos atribuídos a cada curso diretamente na função de criação de treinamentos.</p>
+      </section>
+      </a>
+      <!-- Adicione outras seções conforme os menus -->
+
+    </main>
+  </div>
+
+  <script src="dashboard-empresa.js"></script>
+</body>
+</html>
