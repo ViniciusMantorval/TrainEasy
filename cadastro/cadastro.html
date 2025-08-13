@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Cadastro - TrainEasy</title>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="cadastro.css" />
+</head>
+<body>
+  <div class="login-container">
+    <h2>Crie sua conta</h2>
+
+    <form id="formCadastro">
+      <input type="text" name="nome" placeholder="Nome completo" required />
+      <input type="email" name="email" placeholder="E-mail" required />
+      <input type="password" name="senha" placeholder="Senha" required />
+
+<!-- Tipo de usuário -->
+<div class="tipo-usuario">
+    <label>
+      <input type="radio" name="tipo" value="empresa"/>
+      Sou uma empresa
+    </label>
+    <label>
+      <input type="radio" name="tipo" value="funcionario" />
+      Sou um funcionário
+    </label>
+  </div>
+  
+  <!-- Campos de empresa -->
+  <div id="campoCNPJ" class="extra-field">
+    <input type="text" name="cnpj" placeholder="CNPJ" />
+  </div>
+  
+  <!-- Campos de funcionário -->
+  <div id="campoFuncionario" class="extra-field">
+    <input type="text" name="cpf" placeholder="CPF" />
+    <input type="text" name="cep" id="cep" placeholder="CEP" />
+    <div id="endereco"></div>
+  </div>
+
+      <button type="submit">Cadastrar</button>
+    </form>
+
+    <p style="margin-top: 1rem;">Já tem conta? <a href="../login/login.html">Faça login</a></p>
+  </div>
+
+  <script src="cadastro.js"></script>
+</body>
+</html>
