@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Lista de Empresas</title>
+  <link rel="stylesheet" href="dashboard-root.css" />
+</head>
+<body>
+  <header>
+    <div class="logo">Traineasy</div>
+    <button class="login-button">Voltar para login</button>
+  </header>
+
+  <main>
+    <h1>Lista de empresas</h1>
+
+     <form id="filtros">
+      <label>Status da empresa:</label>
+      <label><input type="radio" name="status" value=1 /> Ativa</label>
+      <label><input type="radio" name="status" value=2 /> Inativa</label>
+      <label><input type="radio" name="status" value=3 /> Em aguardo</label>
+
+      <input type="text" name="nome" id="nome" placeholder="Procurar por nome" />
+      <button class="pesquisar">Pesquisar</button>
+    </form>
+
+    <table>
+      <thead>
+        <tr>
+          <th id="">ID</th>
+          <th>Razão social</th>
+          <th>Nome_fantasia</th>
+          <th>email</th>
+          <th>CNPJ</th>
+          <th>Status</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody id="lista">
+        <!-- linhas das empresas serão inseridas aqui -->
+      </tbody>
+
+      <tr class="linha-edicao" id="linha-edicao" style="display: none;">
+        <td colspan="7">
+          <form onsubmit="salvarEdicao(event)">
+            <input name="razao_social" id="edit_razao_social" placeholder="Razão social" />
+            <input name="nome_fantasia" id="edit_nome_fantasia" placeholder="Nome fantasia" />
+            <input name="email" id="edit_email" placeholder="Email" />
+            <input name="cnpj" id="edit_cnpj" placeholder="CNPJ" />
+            <input name="status" id="edit_status" placeholder="Status" />
+            <button type="submit">Salvar</button>
+            <button type="button" onclick="cancelarEdicao()">Cancelar</button>
+          </form>
+        </td>
+      </tr>
+    </table>
+
+  
+  </main>
+  <script src="dashboard-root.js"></script>
+</body>
+</html>

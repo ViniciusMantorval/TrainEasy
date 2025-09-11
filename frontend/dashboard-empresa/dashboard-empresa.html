@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dashboard da Empresa - TrainEasy</title>
+  <link rel="stylesheet" href="dashboard-empresa.css" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+  <!-- Header/Topbar -->
+  <header class="topbar">
+    <div class="user-section">
+      <div class="user-info">
+        <div class="user-avatar">
+          <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=40&h=40&fit=crop&crop=face" alt="Avatar" id="userAvatar">
+        </div>
+        <div class="user-details">
+          <span class="welcome-text" id="boasVindas">Bem-vindo, User</span>
+          <span class="company-name" id="nome_empresa">Empresa</span>
+        </div>
+      </div>
+      <div class="header-actions">
+        <button class="notification-btn" onclick="toggleNotifications()">
+          <i class="fas fa-bell"></i>
+          <span class="notif-count">5</span>
+        </button>
+        <div class="notifications-dropdown" id="notificationsDropdown">
+          <div class="notifications-header">
+            <h3>Notificações</h3>
+            <button class="mark-all-read" onclick="markAllAsRead()">
+              <i class="fas fa-check-double"></i>
+            </button>
+          </div>
+          <div class="notifications-list">
+            <div class="notification-item unread">
+              <div class="notification-icon">
+                <i class="fas fa-user-plus"></i>
+              </div>
+              <div class="notification-content">
+                <h4>Novo funcionário cadastrado</h4>
+                <p>Maria Silva foi adicionada ao departamento de TI</p>
+                <span class="notification-time">2 min atrás</span>
+              </div>
+            </div>
+            <div class="notification-item unread">
+              <div class="notification-icon">
+                <i class="fas fa-graduation-cap"></i>
+              </div>
+              <div class="notification-content">
+                <h4>Treinamento concluído</h4>
+                <p>15 funcionários concluíram o curso de JavaScript</p>
+                <span class="notification-time">1 hora atrás</span>
+              </div>
+            </div>
+            <div class="notification-item">
+              <div class="notification-icon">
+                <i class="fas fa-trophy"></i>
+              </div>
+              <div class="notification-content">
+                <h4>Meta atingida</h4>
+                <p>Departamento de vendas atingiu 90% de conclusão</p>
+                <span class="notification-time">3 horas atrás</span>
+              </div>
+            </div>
+          </div>
+          <div class="notifications-footer">
+            <button class="view-all-notifications" onclick="viewAllNotifications()">
+              Ver todas as notificações
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="logo" id="logo">
+      <i><img src="../logo/logo.png" alt="Logo da Empresa" class="logo-img"></i>
+      <span>TrainEasy</span>
+    </div>
+    
+    <div class="header-controls">
+      <button class="search-btn" onclick="toggleSearch()">
+        <i class="fas fa-search"></i>
+      </button>
+      <div class="search-container" id="searchContainer">
+        <input type="text" placeholder="Buscar..." id="searchInput" onkeyup="handleSearch(event)">
+        <button class="search-close" onclick="closeSearch()">
+          <i class="fas fa-times"></i>
+        </button>
+      </div>
+      <div class="theme-toggle">
+        <button class="theme-btn" onclick="toggleTheme()">
+          <i class="fas fa-moon" id="themeIcon"></i>
+        </button>
+      </div>
+      <div class="user-menu">
+        <button class="user-menu-btn" onclick="toggleUserMenu()">
+          <i class="fas fa-cog"></i>
+        </button>
+        <div class="user-menu-dropdown" id="userMenuDropdown">
+          <a href="../perfil/perfil.html" >
+            <i class="fas fa-user"></i>
+            Meu Perfil
+          </a>
+          
+          <a href="#" onclick="openHelp()">
+            <i class="fas fa-question-circle"></i>
+            Ajuda
+          </a>
+          <hr>
+          <a href="#" onclick="logout()">
+            <i class="fas fa-sign-out-alt"></i>
+            Sair
+          </a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Menu Toggle -->
+  <button class="mobile-menu-toggle" onclick="toggleSidebar()">
+    <i class="fas fa-bars"></i>
+  </button>
+
+  <div class="container">
+    <!-- Sidebar -->
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-header">
+        <h3>Menu Principal</h3>
+        <button class="sidebar-close" onclick="closeSidebar()">
+          <i class="fas fa-times"></i>
+        </button>
+      </div>
+      
+      <nav class="sidebar-nav">
+        <ul>
+          <li class="nav-item active" onclick="setActiveMenuItem(this)">
+            <a href="../dashboard-empresa/dashboard-empresa.html" >
+              <i class="fas fa-tachometer-alt"></i>
+              <span>Dashboard</span>
+            </a>
+          </li>
+          <li class="nav-item" onclick="setActiveMenuItem(this)">
+            <a href="../criar-treinamento/criar-treinamento.html" >
+              <i class="fas fa-plus-circle"></i>
+              <span>Criação de Treinamentos</span>
+            </a>
+          </li>
+          <li class="nav-item" onclick="setActiveMenuItem(this)">
+            <a href="../meus-treinamentos/meus-treinamentos.html" >
+              <i class="fas fa-folder-open"></i>
+              <span>Meus Treinamentos</span>
+            </a>
+          </li>
+          <li class="nav-item" onclick="setActiveMenuItem(this)">
+            <a href="../departamentos/departamentos.html">
+              <i class="fas fa-building"></i>
+              <span>Departamentos</span>
+            </a>
+          </li>
+          <li class="nav-item" onclick="setActiveMenuItem(this)">
+            <a href="../funcionarios_empresa/funcionarios_empresa.html">
+              <i class="fas fa-users"></i>
+              <span>Controle de Funcionários</span>
+            </a>
+          </li>
+          <li class="nav-item" onclick="setActiveMenuItem(this)">
+            <a href="../ranking-funcionario/ranking-funcionario.html" >
+              <i class="fas fa-trophy"></i>
+              <span>Ranking Interno</span>
+            </a>
+          </li>
+          <li class="nav-item" onclick="setActiveMenuItem(this)">
+            <a href="../gerenciar-recompensas/gerenciar-recompensas.html" >
+              <i class="fas fa-store"></i>
+              <span>Mercado de Pontos</span>
+            </a>
+          </li>
+          
+          <li class="nav-item" onclick="setActiveMenuItem(this)">
+            <a href="../estatisticas/estatisiticas.html" >
+              <i class="fas fa-chart-bar"></i>
+              <span>Estatísticas</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+
+      <div class="sidebar-footer">
+        <div class="company-info">
+          <div class="company-logo">
+            <i class="fas fa-building"></i>
+          </div>
+          <div class="company-details">
+            <h4>TechCorp Solutions</h4>
+            <p>Plano Professional</p>
+          </div>
+        </div>
+      </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+      <!-- Dashboard Overview -->
+      <section class="content-section active" id="dashboard">
+        <div class="page-header">
+          <h1>Dashboard</h1>
+          <p>Visão geral da sua empresa e treinamentos</p>
+        </div>
+
+        <!-- Stats Cards -->
+        <div class="stats-grid">
+          <div class="stat-card">
+            <div class="stat-icon">
+              <i class="fas fa-users"></i>
+            </div>
+            <div class="stat-content">
+              <h3>248</h3>
+              <p>Funcionários Ativos</p>
+              <span class="stat-change positive">
+                <i class="fas fa-arrow-up"></i>
+                +12% este mês
+              </span>
+            </div>
+          </div>
+          
+          <div class="stat-card">
+            <div class="stat-icon">
+              <i class="fas fa-graduation-cap"></i>
+            </div>
+            <div class="stat-content">
+              <h3>42</h3>
+              <p>Treinamentos Ativos</p>
+              <span class="stat-change positive">
+                <i class="fas fa-arrow-up"></i>
+                +8% este mês
+              </span>
+            </div>
+          </div>
+          
+          <div class="stat-card">
+            <div class="stat-icon">
+              <i class="fas fa-certificate"></i>
+            </div>
+            <div class="stat-content">
+              <h3>1,847</h3>
+              <p>Certificados Emitidos</p>
+              <span class="stat-change positive">
+                <i class="fas fa-arrow-up"></i>
+                +23% este mês
+              </span>
+            </div>
+          </div>
+          
+          <div class="stat-card">
+            <div class="stat-icon">
+              <i class="fas fa-chart-line"></i>
+            </div>
+            <div class="stat-content">
+              <h3>87%</h3>
+              <p>Taxa de Conclusão</p>
+              <span class="stat-change negative">
+                <i class="fas fa-arrow-down"></i>
+                -2% este mês
+              </span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Quick Actions -->
+        <div class="quick-actions">
+          <h2>Ações Rápidas</h2>
+          <div class="actions-grid">
+            <a href="../criar-treinamento/criar-treinamento.html">
+            <button class="action-card" >
+              
+              <div class="action-icon">
+                <i class="fas fa-plus-circle"></i>
+              </div>
+              <div class="action-content">
+                <h3>Criar Treinamento</h3>
+                <p>Adicione um novo curso para sua equipe</p>
+              </div>
+              <div class="action-arrow">
+                <i class="fas fa-arrow-right"></i>
+              </div>
+              
+            </button>
+            </a>
+            <a href="../funcionarios_empresa/funcionarios_empresa.html">
+            <button class="action-card" >
+              
+              <div class="action-icon">
+                <i class="fas fa-user-plus"></i>
+              </div>
+              <div class="action-content">
+                <h3>Adicionar Funcionário</h3>
+                <p>Cadastre novos membros da equipe</p>
+              </div>
+              <div class="action-arrow">
+                <i class="fas fa-arrow-right"></i>
+              </div>
+              
+            </button>
+            </a>
+          </div>
+        </div>
+
+        <!-- Recent Activity -->
+        <div class="recent-activity">
+          <h2>Atividade Recente</h2>
+          <div class="activity-list">
+            <div class="activity-item">
+              <div class="activity-icon">
+                <i class="fas fa-graduation-cap"></i>
+              </div>
+              <div class="activity-content">
+                <h4>Treinamento "JavaScript Avançado" foi concluído</h4>
+                <p>15 funcionários completaram o curso com sucesso</p>
+                <span class="activity-time">2 horas atrás</span>
+              </div>
+            </div>
+            
+            <div class="activity-item">
+              <div class="activity-icon">
+                <i class="fas fa-user-plus"></i>
+              </div>
+              <div class="activity-content">
+                <h4>Novo funcionário adicionado</h4>
+                <p>Maria Silva foi cadastrada no departamento de TI</p>
+                <span class="activity-time">4 horas atrás</span>
+              </div>
+            </div>
+            
+            <div class="activity-item">
+              <div class="activity-icon">
+                <i class="fas fa-trophy"></i>
+              </div>
+              <div class="activity-content">
+                <h4>Meta de treinamento atingida</h4>
+                <p>Departamento de Vendas alcançou 90% de conclusão</p>
+                <span class="activity-time">1 dia atrás</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <!-- Loading Overlay -->
+  <div class="loading-overlay" id="loadingOverlay">
+    <div class="loading-spinner">
+      <i class="fas fa-spinner fa-spin"></i>
+      <p>Carregando...</p>
+    </div>
+  </div>
+ 
+  <!-- Scripts -->
+  <script src="dashboard-empresa.js"></script>
+</body>
+</html>
+

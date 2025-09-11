@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Cadastro - TrainEasy</title>
+  <link rel="stylesheet" href="cadastro.css" />
+</head>
+<body>
+  <div class="login-container">
+    <h2>Crie sua conta</h2>
+
+    <form id="formCadastro">
+      <input type="text" name="razao_social" placeholder="Razão social:" required />
+      <input type="text" name="nome_fantasia" placeholder="nome_fantasia" required />
+      <input type="email" name="email" placeholder="E-mail:" required />
+      <input type="text" name="cnpj" placeholder="CNPJ:" />
+      <input type="password" name="senha" placeholder="Senha:" required />
+      <input type="password" name="senha_conf" placeholder="Confirme sua senha" required />
+      <button type="submit">Cadastrar</button>
+    </form>
+
+    <p style="margin-top: 1rem;">Já tem conta? <a href="../login/login.html">Faça login</a></p>
+  </div>
+
+  <script src="cadastro.js"></script>
+</body>
+</html>

@@ -1,0 +1,125 @@
+/* Reset básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: "Segoe UI", sans-serif;
+    background-color: #f2f2f2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    position: relative;
+    height: 100vh;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: url('imagens/logo.png') no-repeat right center;
+    background-size: 38%;
+    z-index: 0;
+  }
+  body::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255,255,255,0.1) 1px, transparent 1px);
+    background-size: 50px 50px;
+    z-index: 1;
+    content: "";
+    position: fixed;
+    inset: 0;
+    background: linear-gradient(135deg, #5c27fe 0%, #00d4ff 100%);
+    z-index: -1;
+    opacity: 0.9;
+  
+}
+  
+  .login-container {
+    background-color: #ffffff;
+    padding: 2.5rem 2rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 360px;
+    text-align: center;
+  }
+  
+  .login-container h2 {
+    margin-bottom: 1.5rem;
+    color: #0d6efd;
+  }
+  
+  .login-container input {
+    width: 100%;
+    padding: 0.75rem;
+    margin: 0.5rem 0;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 1rem;
+  }
+  
+  .login-container button {
+    width: 100%;
+    padding: 0.75rem;
+    margin-top: 1rem;
+    background-color: #0d6efd;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-weight: bold;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+  }
+  
+  .login-container button:hover {
+    background-color: #094cc7;
+  }
+  
+  .login-container p {
+    font-size: 0.9rem;
+    color: #555;
+  }
+  
+  .login-container a {
+    color: #0d6efd;
+    text-decoration: none;
+  }
+  
+  .login-container a:hover {
+    text-decoration: underline;
+  }
+  .extra-field input {
+    margin-top: 0.5rem;
+  }
+  .tipo-usuario {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem; /* Espaço entre os radios */
+    margin: 1rem 0;
+  }
+  
+  .tipo-usuario label {
+    display: flex;
+    align-items: center;
+    font-size: 0.95rem;
+    cursor: pointer;
+    gap: 0.3rem;
+  }
+  .extra-field {
+    display: none;
+    margin-top: 0.5rem;
+  }
+  
+  #endereco {
+    margin-top: 0.3rem;
+    font-size: 0.85rem;
+    color: #333;
+  }  

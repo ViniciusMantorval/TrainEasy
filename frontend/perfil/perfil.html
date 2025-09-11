@@ -1,0 +1,708 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Meu Perfil - TrainEasy</title>
+  <link rel="stylesheet" href="perfil.css" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+  <!-- Navbar -->
+  <header class="navbar">
+    <div class="container">
+      <div class="nav-content">
+        <div class="logo">
+          <i class="fas fa-graduation-cap"></i>
+          <span>TrainEasy</span>
+        </div>
+        <nav class="nav-menu">
+          <ul class="nav-links">
+            <li><a href="../dashboard-funcionario/dashboard-funcionario.html" class="nav-link">Dashboard</a></li>
+            <li><a href="#" class="nav-link">Meus Cursos</a></li>
+            <li><a href="#" class="nav-link">Certificados</a></li>
+            <li><a href="#" class="nav-link active">Perfil</a></li>
+          </ul>
+          <div class="nav-user">
+            <div class="user-avatar">
+              <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150&h=150&fit=crop&crop=face" alt="Avatar" id="navAvatar">
+            </div>
+            <div class="user-dropdown">
+              <button class="dropdown-toggle" onclick="toggleUserDropdown()">
+                <i class="fas fa-chevron-down"></i>
+              </button>
+              <div class="dropdown-menu" id="userDropdown">
+                <a href="#" onclick="editProfile()"><i class="fas fa-user"></i> Editar Perfil</a>
+                <a href="#" onclick="openSettings()"><i class="fas fa-cog"></i> Configurações</a>
+                <a href="#" onclick="logout()"><i class="fas fa-sign-out-alt"></i> Sair</a>
+              </div>
+            </div>
+          </div>
+        </nav>
+        <div class="mobile-menu-toggle">
+          <i class="fas fa-bars"></i>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="main-content">
+    <div class="container">
+      <!-- Profile Header -->
+      <section class="profile-header">
+        <div class="profile-banner">
+          <div class="banner-overlay"></div>
+          <button class="change-banner-btn" onclick="changeBanner()">
+            <i class="fas fa-camera"></i>
+            Alterar Capa
+          </button>
+        </div>
+        <div class="profile-info">
+          <div class="profile-avatar-section">
+            <div class="profile-avatar">
+              <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=200&h=200&fit=crop&crop=face" alt="Foto do Perfil" id="profileAvatar">
+              <button class="change-avatar-btn" onclick="changeAvatar()">
+                <i class="fas fa-camera"></i>
+              </button>
+            </div>
+            <div class="profile-status">
+              <span class="status-indicator online"></span>
+              <span class="status-text">Online</span>
+            </div>
+          </div>
+          <div class="profile-details">
+            <h1 class="profile-name" id="profileName">João Silva</h1>
+            <p class="profile-title" id="profileTitle">Desenvolvedor Full Stack</p>
+            <p class="profile-company" id="profileCompany">TechCorp Solutions</p>
+            <div class="profile-stats">
+              <div class="stat-item">
+                <span class="stat-number">24</span>
+                <span class="stat-label">Cursos Concluídos</span>
+              </div>
+              <div class="stat-item">
+                <span class="stat-number">156</span>
+                <span class="stat-label">Horas de Estudo</span>
+              </div>
+              <div class="stat-item">
+                <span class="stat-number">18</span>
+                <span class="stat-label">Certificados</span>
+              </div>
+              <div class="stat-item">
+                <span class="stat-number">2.840</span>
+                <span class="stat-label">Pontos XP</span>
+              </div>
+            </div>
+          </div>
+          <div class="profile-actions">
+            <button class="btn-primary" onclick="editProfile()">
+              <i class="fas fa-edit"></i>
+              Editar Perfil
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <!-- Profile Content -->
+      <div class="profile-content">
+        <!-- Sidebar -->
+        <aside class="profile-sidebar">
+          <!-- Progress Overview -->
+          <div class="sidebar-card">
+            <h3 class="card-title">
+              <i class="fas fa-chart-line"></i>
+              Progresso Geral
+            </h3>
+            <div class="progress-overview">
+              <div class="circular-progress">
+                <svg class="progress-ring" width="120" height="120">
+                  <circle class="progress-ring-circle" stroke="#e5e7eb" stroke-width="8" fill="transparent" r="52" cx="60" cy="60"/>
+                  <circle class="progress-ring-circle progress-ring-fill" stroke="#6366f1" stroke-width="8" fill="transparent" r="52" cx="60" cy="60" style="stroke-dasharray: 326.73; stroke-dashoffset: 98.02;"/>
+                </svg>
+                <div class="progress-text">
+                  <span class="progress-percentage" id="progress_text">70%</span>
+                  <span class="progress-label">Concluído</span>
+                </div>
+              </div>
+              <div class="progress-details">
+                <div class="progress-item">
+                  <span class="progress-dot completed"></span>
+                  <span>24 Cursos Concluídos</span>
+                </div>
+                <div class="progress-item">
+                  <span class="progress-dot in-progress"></span>
+                  <span>3 Em Progresso</span>
+                </div>
+                <div class="progress-item">
+                  <span class="progress-dot pending"></span>
+                  <span>8 Pendentes</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Achievements -->
+          <div class="sidebar-card">
+            <h3 class="card-title">
+              <i class="fas fa-trophy"></i>
+              Conquistas Recentes
+            </h3>
+            <div class="achievements-list">
+              <div class="achievement-item">
+                <div class="achievement-icon gold">
+                  <i class="fas fa-crown"></i>
+                </div>
+                <div class="achievement-info">
+                  <h4>Mestre JavaScript</h4>
+                  <p>Concluiu 5 cursos de JavaScript</p>
+                  <span class="achievement-date">Hoje</span>
+                </div>
+              </div>
+              <div class="achievement-item">
+                <div class="achievement-icon silver">
+                  <i class="fas fa-medal"></i>
+                </div>
+                <div class="achievement-info">
+                  <h4>Estudante Dedicado</h4>
+                  <p>7 dias consecutivos estudando</p>
+                  <span class="achievement-date">Ontem</span>
+                </div>
+              </div>
+              <div class="achievement-item">
+                <div class="achievement-icon bronze">
+                  <i class="fas fa-star"></i>
+                </div>
+                <div class="achievement-info">
+                  <h4>Primeira Certificação</h4>
+                  <p>Obteve seu primeiro certificado</p>
+                  <span class="achievement-date">3 dias atrás</span>
+                </div>
+              </div>
+            </div>
+            <button class="view-all-btn" onclick="viewAllAchievements()">
+              Ver Todas as Conquistas
+            </button>
+          </div>
+
+          <!-- Learning Streak -->
+          <div class="sidebar-card">
+            <h3 class="card-title">
+              <i class="fas fa-fire"></i>
+              Sequência de Estudos
+            </h3>
+            <div class="streak-info">
+              <div class="streak-number">7</div>
+              <div class="streak-text">dias consecutivos</div>
+              <div class="streak-calendar">
+                <div class="calendar-week">
+                  <div class="calendar-day completed">S</div>
+                  <div class="calendar-day completed">T</div>
+                  <div class="calendar-day completed">Q</div>
+                  <div class="calendar-day completed">Q</div>
+                  <div class="calendar-day completed">S</div>
+                  <div class="calendar-day completed">S</div>
+                  <div class="calendar-day completed">D</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </aside>
+
+        <!-- Main Profile Content -->
+        <div class="profile-main">
+          <!-- Tab Navigation -->
+          <div class="tab-navigation">
+            <button class="tab-btn active" onclick="switchTab('overview')" data-tab="overview">
+              <i class="fas fa-chart-pie"></i>
+              Visão Geral
+            </button>
+            <button class="tab-btn" onclick="switchTab('courses')" data-tab="courses">
+              <i class="fas fa-book"></i>
+              Meus Cursos
+            </button>
+            <button class="tab-btn" onclick="switchTab('certificates')" data-tab="certificates">
+              <i class="fas fa-certificate"></i>
+              Certificados
+            </button>
+            <button class="tab-btn" onclick="switchTab('activity')" data-tab="activity">
+              <i class="fas fa-clock"></i>
+              Atividade
+            </button>
+          </div>
+
+          <!-- Tab Content -->
+          <div class="tab-content">
+            <!-- Overview Tab -->
+            <div class="tab-pane active" id="overview">
+              <!-- Learning Path -->
+              <div class="content-card">
+                <h3 class="card-title">
+                  <i class="fas fa-route"></i>
+                  Trilha de Aprendizado Atual
+                </h3>
+                <div class="learning-path">
+                  <div class="path-header">
+                    <h4>Desenvolvedor Full Stack</h4>
+                    <div class="path-progress">
+                      <div class="progress-bar">
+                        <div class="progress-fill" style="width: 65%"></div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="path-steps">
+                    <div class="step completed">
+                      <div class="step-icon">
+                        <i class="fas fa-check"></i>
+                      </div>
+                      <div class="step-content">
+                        <h5>HTML & CSS Fundamentals</h5>
+                        <p>Concluído em 15/01/2025</p>
+                      </div>
+                    </div>
+                    <div class="step completed">
+                      <div class="step-icon">
+                        <i class="fas fa-check"></i>
+                      </div>
+                      <div class="step-content">
+                        <h5>JavaScript Essentials</h5>
+                        <p>Concluído em 22/01/2025</p>
+                      </div>
+                    </div>
+                    <div class="step current">
+                      <div class="step-icon">
+                        <i class="fas fa-play"></i>
+                      </div>
+                      <div class="step-content">
+                        <h5>React Development</h5>
+                        <p>Em progresso - 70% concluído</p>
+                      </div>
+                    </div>
+                    <div class="step pending">
+                      <div class="step-icon">
+                        <i class="fas fa-lock"></i>
+                      </div>
+                      <div class="step-content">
+                        <h5>Node.js & Express</h5>
+                        <p>Disponível em breve</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Recent Activity -->
+              <div class="content-card">
+                <h3 class="card-title">
+                  <i class="fas fa-history"></i>
+                  Atividade Recente
+                </h3>
+                <div class="activity-timeline">
+                  <div class="timeline-item">
+                    <div class="timeline-icon completed">
+                      <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <div class="timeline-content">
+                      <h4>Certificado obtido</h4>
+                      <p>JavaScript Advanced - Certificação concluída com 95% de aproveitamento</p>
+                      <span class="timeline-date">Hoje, 14:30</span>
+                    </div>
+                  </div>
+                  <div class="timeline-item">
+                    <div class="timeline-icon progress">
+                      <i class="fas fa-play"></i>
+                    </div>
+                    <div class="timeline-content">
+                      <h4>Aula concluída</h4>
+                      <p>React Hooks - Aula 8: useEffect e useContext</p>
+                      <span class="timeline-date">Hoje, 10:15</span>
+                    </div>
+                  </div>
+                  <div class="timeline-item">
+                    <div class="timeline-icon achievement">
+                      <i class="fas fa-trophy"></i>
+                    </div>
+                    <div class="timeline-content">
+                      <h4>Conquista desbloqueada</h4>
+                      <p>Mestre JavaScript - Concluiu 5 cursos de JavaScript</p>
+                      <span class="timeline-date">Ontem, 16:45</span>
+                    </div>
+                  </div>
+                  <div class="timeline-item">
+                    <div class="timeline-icon social">
+                      <i class="fas fa-comments"></i>
+                    </div>
+                    <div class="timeline-content">
+                      <h4>Participação no fórum</h4>
+                      <p>Respondeu uma dúvida sobre "Async/Await em JavaScript"</p>
+                      <span class="timeline-date">2 dias atrás, 09:20</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Skills Overview -->
+              <div class="content-card">
+                <h3 class="card-title">
+                  <i class="fas fa-brain"></i>
+                  Habilidades Desenvolvidas
+                </h3>
+                <div class="skills-grid">
+                  <div class="skill-item">
+                    <div class="skill-header">
+                      <span class="skill-name">JavaScript</span>
+                      <span class="skill-level">Avançado</span>
+                    </div>
+                    <div class="skill-progress">
+                      <div class="skill-bar" style="width: 90%"></div>
+                    </div>
+                    <div class="skill-details">
+                      <span>5 cursos • 45h de estudo</span>
+                    </div>
+                  </div>
+                  <div class="skill-item">
+                    <div class="skill-header">
+                      <span class="skill-name">React</span>
+                      <span class="skill-level">Intermediário</span>
+                    </div>
+                    <div class="skill-progress">
+                      <div class="skill-bar" style="width: 70%"></div>
+                    </div>
+                    <div class="skill-details">
+                      <span>3 cursos • 28h de estudo</span>
+                    </div>
+                  </div>
+                  <div class="skill-item">
+                    <div class="skill-header">
+                      <span class="skill-name">Node.js</span>
+                      <span class="skill-level">Básico</span>
+                    </div>
+                    <div class="skill-progress">
+                      <div class="skill-bar" style="width: 45%"></div>
+                    </div>
+                    <div class="skill-details">
+                      <span>2 cursos • 18h de estudo</span>
+                    </div>
+                  </div>
+                  <div class="skill-item">
+                    <div class="skill-header">
+                      <span class="skill-name">Python</span>
+                      <span class="skill-level">Intermediário</span>
+                    </div>
+                    <div class="skill-progress">
+                      <div class="skill-bar" style="width: 65%"></div>
+                    </div>
+                    <div class="skill-details">
+                      <span>4 cursos • 32h de estudo</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Courses Tab -->
+            <div class="tab-pane" id="courses">
+              <div class="courses-filter">
+                <div class="filter-buttons">
+                  <button class="filter-btn active" onclick="filterCourses('all')">Todos</button>
+                  <button class="filter-btn" onclick="filterCourses('concluido')">Concluídos</button>
+                  <button class="filter-btn" onclick="filterCourses('em_andamento')">Em Progresso</button>
+                  <button class="filter-btn" onclick="filterCourses('pendente')">Pendentes</button>
+                </div>
+                <div class="search-box">
+                  <i class="fas fa-search"></i>
+                  <input type="text" placeholder="Buscar cursos..." onkeyup="searchCourses(this.value)">
+                </div>
+              </div>
+
+              <div class="courses-grid" id="coursesGrid">
+                <div class="course-card completed" data-status="completed">
+                  <div class="course-image">
+                    <img src="https://images.unsplash.com/photo-1627398242454-45a1465c2479?w=300&h=200&fit=crop" alt="JavaScript Course">
+                    <div class="course-status">
+                      <i class="fas fa-check-circle"></i>
+                      Concluído
+                    </div>
+                  </div>
+                  <div class="course-content">
+                    <h4 class="course-title">JavaScript Fundamentals</h4>
+                    <p class="course-description">Aprenda os conceitos básicos do JavaScript</p>
+                    <div class="course-progress">
+                      <div class="progress-bar">
+                        <div class="progress-fill" style="width: 100%"></div>
+                      </div>
+                      <span class="progress-text">100%</span>
+                    </div>
+                    <div class="course-meta">
+                      <span><i class="fas fa-clock"></i> 12h</span>
+                      <span><i class="fas fa-star"></i> 4.8</span>
+                      <span><i class="fas fa-certificate"></i> Certificado</span>
+                    </div>
+                  </div>
+                  <div class="course-actions">
+                    <button class="btn-primary" onclick="viewCertificate('js-fundamentals')">
+                      Ver Certificado
+                    </button>
+                  </div>
+                </div>
+
+                <div class="course-card in-progress" data-status="in-progress">
+                  <div class="course-image">
+                    <img src="https://images.unsplash.com/photo-1633356122544-f134324a6cee?w=300&h=200&fit=crop" alt="React Course">
+                    <div class="course-status">
+                      <i class="fas fa-play-circle"></i>
+                      Em Progresso
+                    </div>
+                  </div>
+                  <div class="course-content">
+                    <h4 class="course-title">React Development</h4>
+                    <p class="course-description">Construa aplicações modernas com React</p>
+                    <div class="course-progress">
+                      <div class="progress-bar">
+                        <div class="progress-fill" style="width: 70%"></div>
+                      </div>
+                      <span class="progress-text">70%</span>
+                    </div>
+                    <div class="course-meta">
+                      <span><i class="fas fa-clock"></i> 18h</span>
+                      <span><i class="fas fa-star"></i> 4.9</span>
+                      <span><i class="fas fa-users"></i> 1.2k alunos</span>
+                    </div>
+                  </div>
+                  <div class="course-actions">
+                    <button class="btn-primary" onclick="continueCourse('react-dev')">
+                      Continuar
+                    </button>
+                  </div>
+                </div>
+
+                <div class="course-card pending" data-status="pending">
+                  <div class="course-image">
+                    <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=300&h=200&fit=crop" alt="Node.js Course">
+                    <div class="course-status">
+                      <i class="fas fa-lock"></i>
+                      Bloqueado
+                    </div>
+                  </div>
+                  <div class="course-content">
+                    <h4 class="course-title">Node.js & Express</h4>
+                    <p class="course-description">Desenvolvimento backend com Node.js</p>
+                    <div class="course-progress">
+                      <div class="progress-bar">
+                        <div class="progress-fill" style="width: 0%"></div>
+                      </div>
+                      <span class="progress-text">0%</span>
+                    </div>
+                    <div class="course-meta">
+                      <span><i class="fas fa-clock"></i> 20h</span>
+                      <span><i class="fas fa-star"></i> 4.7</span>
+                      <span><i class="fas fa-users"></i> 850 alunos</span>
+                    </div>
+                  </div>
+                  <div class="course-actions">
+                    <button class="btn-secondary" disabled>
+                      Complete o curso anterior
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Certificates Tab -->
+            <div class="tab-pane" id="certificates">
+              <div class="certificates-header">
+                <h3>Meus Certificados</h3>
+                <button class="btn-primary" onclick="downloadAllCertificates()">
+                  <i class="fas fa-download"></i>
+                  Baixar Todos
+                </button>
+              </div>
+
+              <div class="certificates-grid">
+                <div class="certificate-card">
+                  <div class="certificate-preview">
+                    <div class="certificate-content">
+                      <div class="certificate-header">
+                        <i class="fas fa-award"></i>
+                        <h4>Certificado de Conclusão</h4>
+                      </div>
+                      <div class="certificate-body">
+                        <h5>JavaScript Fundamentals</h5>
+                        <p>João Silva</p>
+                        <p>Concluído em 22/01/2025</p>
+                        <p>Nota: 95%</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="certificate-actions">
+                    <button class="btn-primary" onclick="viewCertificate('js-fundamentals')">
+                      <i class="fas fa-eye"></i>
+                      Visualizar
+                    </button>
+                    <button class="btn-secondary" onclick="downloadCertificate('js-fundamentals')">
+                      <i class="fas fa-download"></i>
+                      Baixar
+                    </button>
+                    <button class="btn-secondary" onclick="shareCertificate('js-fundamentals')">
+                      <i class="fas fa-share"></i>
+                      Compartilhar
+                    </button>
+                  </div>
+                </div>
+
+                <div class="certificate-card">
+                  <div class="certificate-preview">
+                    <div class="certificate-content">
+                      <div class="certificate-header">
+                        <i class="fas fa-award"></i>
+                        <h4>Certificado de Conclusão</h4>
+                      </div>
+                      <div class="certificate-body">
+                        <h5>HTML & CSS Mastery</h5>
+                        <p>João Silva</p>
+                        <p>Concluído em 15/01/2025</p>
+                        <p>Nota: 92%</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="certificate-actions">
+                    <button class="btn-primary" onclick="viewCertificate('html-css')">
+                      <i class="fas fa-eye"></i>
+                      Visualizar
+                    </button>
+                    <button class="btn-secondary" onclick="downloadCertificate('html-css')">
+                      <i class="fas fa-download"></i>
+                      Baixar
+                    </button>
+                    <button class="btn-secondary" onclick="shareCertificate('html-css')">
+                      <i class="fas fa-share"></i>
+                      Compartilhar
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Activity Tab -->
+            <div class="tab-pane" id="activity">
+              <div class="activity-filters">
+                <button class="filter-btn active" onclick="filterActivity('all')">Todas</button>
+                <button class="filter-btn" onclick="filterActivity('courses')">Cursos</button>
+                <button class="filter-btn" onclick="filterActivity('certificates')">Certificados</button>
+                <button class="filter-btn" onclick="filterActivity('achievements')">Conquistas</button>
+              </div>
+
+              <div class="activity-list">
+                <div class="activity-day">
+                  <h4 class="activity-date">Hoje, 25 de Janeiro</h4>
+                  <div class="activity-items">
+                    <div class="activity-item">
+                      <div class="activity-icon completed">
+                        <i class="fas fa-graduation-cap"></i>
+                      </div>
+                      <div class="activity-content">
+                        <h5>Certificado obtido</h5>
+                        <p>JavaScript Advanced - Certificação concluída com 95% de aproveitamento</p>
+                        <span class="activity-time">14:30</span>
+                      </div>
+                    </div>
+                    <div class="activity-item">
+                      <div class="activity-icon progress">
+                        <i class="fas fa-play"></i>
+                      </div>
+                      <div class="activity-content">
+                        <h5>Aula concluída</h5>
+                        <p>React Hooks - Aula 8: useEffect e useContext</p>
+                        <span class="activity-time">10:15</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="activity-day">
+                  <h4 class="activity-date">Ontem, 24 de Janeiro</h4>
+                  <div class="activity-items">
+                    <div class="activity-item">
+                      <div class="activity-icon achievement">
+                        <i class="fas fa-trophy"></i>
+                      </div>
+                      <div class="activity-content">
+                        <h5>Conquista desbloqueada</h5>
+                        <p>Mestre JavaScript - Concluiu 5 cursos de JavaScript</p>
+                        <span class="activity-time">16:45</span>
+                      </div>
+                    </div>
+                    <div class="activity-item">
+                      <div class="activity-icon progress">
+                        <i class="fas fa-book"></i>
+                      </div>
+                      <div class="activity-content">
+                        <h5>Curso iniciado</h5>
+                        <p>React Development - Primeira aula assistida</p>
+                        <span class="activity-time">09:30</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Edit Profile Modal -->
+  <div class="modal-overlay" id="editProfileModal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3 class="modal-title">Editar Perfil</h3>
+        <button class="modal-close" onclick="closeEditProfile()">
+          <i class="fas fa-times"></i>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form class="edit-profile-form" onsubmit="saveProfile(event)">
+          <div class="form-row">
+            <div class="form-group">
+              <label for="editName">Nome Completo</label>
+              <input type="text" id="editName" name="name" value="João Silva" required>
+            </div>
+            <div class="form-group">
+              <label for="editTitle">Cargo/Título</label>
+              <input type="text" id="editTitle" name="title" value="Desenvolvedor Full Stack">
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="editCompany">Empresa</label>
+              <input type="text" id="editCompany" name="company" value="TechCorp Solutions">
+            </div>
+            <div class="form-group">
+              <label for="editEmail">Email</label>
+              <input type="email" id="editEmail" name="email" value="joao.silva@techcorp.com" required>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="editBio">Biografia</label>
+            <textarea id="editBio" name="bio" rows="4" placeholder="Conte um pouco sobre você...">Desenvolvedor apaixonado por tecnologia com foco em JavaScript e React. Sempre em busca de novos desafios e oportunidades de aprendizado.</textarea>
+          </div>
+          <div class="form-actions">
+            <button type="button" class="btn-secondary" onclick="closeEditProfile()">
+              Cancelar
+            </button>
+            <button type="submit" class="btn-primary">
+              <i class="fas fa-save"></i>
+              Salvar Alterações
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="perfil.js"></script>
+</body>
+</html>
+
