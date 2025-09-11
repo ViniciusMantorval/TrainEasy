@@ -1,0 +1,495 @@
+/* Variáveis CSS - Modern Color Palette */
+:root {
+    --bg-color: #f0f2f5;
+    --text-color: #2d3748;
+    --card-bg: rgba(255, 255, 255, 0.95);
+    --accent: #667eea;
+    --accent-hover: #5a67d8;
+    --accent-light: rgba(102, 126, 234, 0.1);
+    --shadow-light: 0 4px 20px rgba(102, 126, 234, 0.15);
+    --shadow-medium: 0 8px 30px rgba(102, 126, 234, 0.2);
+    --shadow-heavy: 0 15px 40px rgba(102, 126, 234, 0.25);
+    --border-radius: 16px;
+    --border-radius-small: 12px;
+    --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --gradient-primary: linear-gradient(135deg, #667eea, #764ba2);
+    --gradient-secondary: linear-gradient(135deg, #ff6b6b, #ee5a24);
+    --border-color-light: rgba(102, 126, 234, 0.1);
+}
+
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: var(--bg-color);
+    color: var(--text-color);
+    min-height: 100vh;
+    position: relative;
+    overflow-x: hidden;
+    padding-top: 70px; /* Ajustar para a altura da topbar */
+}
+
+/* Elementos decorativos de fundo */
+body::before {
+    content: '';
+    position: fixed;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+    background-size: 50px 50px;
+    animation: float 30s linear infinite;
+    z-index: 1;
+    pointer-events: none;
+}
+
+@keyframes float {
+    0% { transform: translate(0, 0) rotate(0deg); }
+    100% { transform: translate(-50px, -50px) rotate(360deg); }
+}
+
+/* Header/Topbar */
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 70px;
+    background: var(--card-bg);
+    backdrop-filter: blur(20px);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 2rem;
+    box-shadow: var(--shadow-light);
+    z-index: 1000;
+    border-bottom: 1px solid var(--border-color-light);
+    transition: var(--transition);
+}
+
+header:hover {
+    box-shadow: var(--shadow-medium);
+}
+
+.logo {
+    font-size: 1.8rem; /* Aumentar tamanho da fonte */
+    font-weight: 700;
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    letter-spacing: -0.5px;
+    transition: var(--transition);
+}
+
+.logo:hover {
+    transform: scale(1.05);
+}
+
+.notificacoes {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    font-size: 1.4rem;
+    color: var(--accent);
+}
+
+.notificacoes span {
+    position: relative;
+    cursor: pointer;
+    padding: 0.5rem;
+    border-radius: 50%;
+    transition: var(--transition);
+}
+
+.notificacoes span:hover {
+    background: var(--accent-light);
+    transform: scale(1.1);
+}
+
+.notificacoes span:first-child::after { /* Notif count */
+    content: '3'; /* Hardcoded, mas pode ser dinâmico */
+    position: absolute;
+    top: -2px;
+    right: -2px;
+    background: var(--gradient-secondary);
+    color: white;
+    border-radius: 50%;
+    padding: 4px 8px;
+    font-size: 11px;
+    font-weight: 600;
+    min-width: 20px;
+    text-align: center;
+    box-shadow: 0 2px 8px rgba(255, 107, 107, 0.3);
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+    100% { transform: scale(1); }
+}
+
+/* Main Content */
+main {
+    display: flex;
+    margin-top: 70px; /* Ajustar para a altura da topbar */
+    min-height: calc(100vh - 70px);
+}
+
+/* Sidebar */
+.menu-lateral {
+    position: fixed;
+    top: 70px; /* Ajustar para a altura da topbar */
+    left: 0;
+    width: 280px; /* Largura consistente */
+    height: calc(100vh - 70px);
+    background: var(--card-bg);
+    backdrop-filter: blur(20px);
+    padding: 2rem 1.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border-right: 1px solid var(--border-color-light);
+    z-index: 1000;
+    box-shadow: var(--shadow-light);
+    transition: var(--transition);
+}
+
+.menu-lateral:hover {
+    box-shadow: var(--shadow-medium);
+}
+
+.menu-lateral ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem; /* Aumentar gap */
+    font-size: 1rem;
+}
+
+.menu-lateral ul li {
+    margin-bottom: 0.5rem;
+    cursor: pointer;
+    transition: var(--transition);
+    padding: 1rem;
+    border-radius: var(--border-radius-small);
+    font-weight: 500;
+    position: relative;
+    overflow: hidden;
+    color: var(--text-color);
+}
+
+.menu-lateral ul li::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, var(--accent-light), transparent);
+    transition: left 0.5s ease;
+}
+
+.menu-lateral ul li:hover {
+    transform: translateX(8px);
+    color: var(--accent);
+    background: var(--accent-light);
+    box-shadow: var(--shadow-light);
+}
+
+.menu-lateral ul li:hover::before {
+    left: 100%;
+}
+
+/* Profile Section */
+.perfil {
+    flex-grow: 1;
+    padding: 2rem 3rem; /* Aumentar padding */
+    margin-left: 280px; /* Ajustar para a largura da sidebar */
+    background: var(--bg-color); /* Fundo do main content */
+    position: relative;
+    z-index: 10;
+}
+
+.superior {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start; /* Alinhar ao topo */
+    padding-bottom: 2rem; /* Aumentar padding */
+    border-bottom: 1px solid var(--border-color-light);
+    margin-bottom: 2rem;
+    background: var(--card-bg);
+    padding: 2rem;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-light);
+    transition: var(--transition);
+}
+
+.superior:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-medium);
+}
+
+.foto-perfil {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.8rem;
+}
+
+.circulo {
+    width: 150px; /* Aumentar tamanho */
+    height: 150px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #e2e8f0, #cbd5e0); /* Gradiente suave */
+    margin-bottom: 0.5rem;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    border: 3px solid var(--accent); /* Borda colorida */
+    transition: var(--transition);
+}
+
+.circulo:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+}
+
+.foto-perfil p {
+    font-size: 0.95rem;
+    color: var(--text-color);
+    opacity: 0.8; /* Levemente transparente */
+    cursor: pointer; /* Indica que é clicável */
+    transition: var(--transition);
+}
+
+.foto-perfil p:hover {
+    color: var(--accent); /* Muda a cor ao passar o mouse */
+}
+
+/* Formulários */
+.dados-usuario {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem; /* Espaçamento entre os inputs */
+    flex-grow: 1; /* Permitir que ocupe o espaço disponível */
+    margin-left: 2rem; /* Espaçamento da foto de perfil */
+}
+
+.dados-usuario input {
+    width: 100%;
+    padding: 1rem;
+    border: 2px solid var(--border-color-light);
+    border-radius: var(--border-radius-small);
+    font-size: 1rem;
+    background: var(--card-bg);
+    color: var(--text-color);
+    transition: var(--transition);
+}
+
+.dados-usuario input:focus {
+    outline: none;
+    border-color: var(--accent);
+    box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.2);
+}
+
+/* Seção de Alterar Senha */
+.alterar-senha {
+    background: var(--card-bg); /* Fundo para a seção de senha */
+    padding: 2.5rem; /* Aumentar padding */
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-light);
+    border: 1px solid var(--border-color-light);
+    transition: var(--transition);
+}
+
+.alterar-senha:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-medium);
+}
+
+.alterar-senha h3 {
+    font-size: 1.8rem; /* Aumentar tamanho */
+    font-weight: 600;
+    color: var(--accent);
+    margin-bottom: 2rem; /* Aumentar margem */
+    position: relative;
+    padding-bottom: 0.5rem;
+}
+
+.alterar-senha h3::after { /* Sublinhado decorativo */
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 50px;
+    height: 3px;
+    background: var(--gradient-primary);
+    border-radius: 2px;
+}
+
+.senha-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem; /* Espaçamento entre os inputs */
+}
+
+.senha-form input {
+    width: 100%;
+    padding: 1rem;
+    border: 2px solid var(--border-color-light);
+    border-radius: var(--border-radius-small);
+    font-size: 1rem;
+    background: var(--card-bg);
+    color: var(--text-color);
+    transition: var(--transition);
+}
+
+.senha-form input:focus {
+    outline: none;
+    border-color: var(--accent);
+    box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.2);
+}
+
+/* Action Buttons */
+.form-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: var(--space-sm);
+    margin-top: var(--space-lg);
+}
+
+.btn {
+    padding: var(--space-sm) var(--space-md);
+    border-radius: var(--radius-sm);
+    font-weight: 500;
+    cursor: pointer;
+    transition: var(--transition);
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-xs);
+}
+
+.btn-primary {
+    background: var(--accent);
+    color: white;
+    border: none;
+}
+
+.btn-primary:hover {
+    background: var(--accent-hover);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+}
+
+.btn-outline {
+    background: transparent;
+    border: 2px solid var(--accent);
+    color: var(--accent);
+}
+
+.btn-outline:hover {
+    background: var(--accent-light);
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .superior {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .dados-usuario {
+        margin-left: 0;
+        width: 100%;
+    }
+
+    .dados-usuario button {
+        align-self: center; /* Centralizar botão em telas menores */
+    }
+
+    .senha-form {
+        margin-top: 2rem; /* Espaçamento superior */
+    }
+}
+
+/* Animation */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.perfil {
+    animation: fadeIn 0.3s ease-out forwards;
+}
+/* =================================== */
+/* ESTILOS PARA O MODO ESCURO (DARK)   */
+/* =================================== */
+
+body.dark {
+  --bg-primary: #111827; /* Fundo principal (era branco) */
+  --bg-secondary: #1f2937; /* Fundo do corpo da página (era cinza claro) */
+  --bg-tertiary: #374151; /* Fundo de elementos terciários */
+  
+  /* Invertendo as cores de texto */
+  --gray-900: #f9fafb; /* Texto principal (era preto, agora é quase branco) */
+  --gray-800: #f3f4f6;
+  --gray-700: #e5e7eb; /* Texto secundário */
+  --gray-600: #d1d5db; /* Texto mais sutil */
+  --gray-500: #9ca3af;
+  
+  /* Invertendo as cores de borda e fundo de inputs */
+  --gray-200: #374151; /* Bordas (eram claras, agora são escuras) */
+  --gray-100: #1f2937; /* Fundos sutis (hover, etc) */
+  --gray-50: #111827;
+}
+
+/* Ajustes específicos para o modo escuro */
+
+/* Corrigir a cor do placeholder nos inputs */
+body.dark .form-input::placeholder,
+body.dark .form-textarea::placeholder {
+  color: var(--gray-500);
+}
+
+/* Corrigir o fundo do botão de adicionar */
+body.dark .btn-add {
+  background: var(--gray-700);
+  color: var(--gray-50);
+}
+
+body.dark .btn-add:hover {
+  background: var(--gray-600);
+}
+
+/* Corrigir o fundo do dropdown de notificações e menu de usuário */
+body.dark .notifications-dropdown,
+body.dark .user-menu-dropdown {
+  background: #1f2937; /* Um fundo mais escuro para os dropdowns */
+}
+
+/* Corrigir o fundo dos itens de notificação */
+body.dark .notification-item.unread {
+  background: rgba(99, 102, 241, 0.15); /* Um pouco mais de opacidade para destacar */
+}
+
+body.dark .notification-item:hover,
+body.dark .user-menu-dropdown a:hover {
+  background: #374151; /* Fundo do hover */
+}
+
+/* Corrigir o fundo do spinner de loading */
+body.dark .loading-spinner {
+  background: var(--bg-secondary);
+}
+
+/* Corrigir a cor do texto do botão "Ver todas as notificações" */
+body.dark .view-all-notifications {
+    background: var(--bg-tertiary);
+    color: var(--gray-100);
+}
+
+body.dark .view-all-notifications:hover {
+    background: #4b5563;
+}
