@@ -8,7 +8,7 @@
     { "src": "cadastro/*.html", "use": "@vercel/static" }
   ],
   "routes": [
-    { "src": "/(.*)", "dest": "/index.html" },
+    { "src": "/(.*)", "dest": "index/index.html" },
      { "src": "/login", "dest": "/login/login.html" },
     { "src": "/dashboard", "dest": "/dashboard/dashboard.html" },
     { "src": "/cadastro", "dest": "/cadastro/cadastro.html" },
