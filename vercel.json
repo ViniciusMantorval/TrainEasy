@@ -8,10 +8,10 @@
     { "src": "cadastro/*.html", "use": "@vercel/static" }
   ],
   "routes": [
-    { "src": "/(.*)", "dest": "index/index.html" },
-     { "src": "/login", "dest": "/login/login.html" },
-    { "src": "/dashboard", "dest": "/dashboard/dashboard.html" },
-    { "src": "/cadastro", "dest": "/cadastro/cadastro.html" },
-    { "src": "/", "dest": "/login/login.html" }
+    { "src": "/(.*)", "dest": "frontend/index/index.html" },
+     { "src": "/login", "dest": "frontend/login/login.html" },
+    { "src": "/dashboard", "dest": "frontend/dashboard/dashboard.html" },
+    { "src": "/cadastro", "dest": "frontend/cadastro/cadastro.html" },
+    { "src": "/", "dest": "frontend/login/login.html" }
   ]
 }
