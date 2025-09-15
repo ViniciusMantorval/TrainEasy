@@ -1,17 +1,1 @@
-{
-  "version": 2,
-  "public": true,
-  "builds": [
-    { "src": "index.html", "use": "@vercel/static" },
-    { "src": "login/*.html", "use": "@vercel/static" },
-    { "src": "dashboard/*.html", "use": "@vercel/static" },
-    { "src": "cadastro/*.html", "use": "@vercel/static" }
-  ],
-  "routes": [
-    { "src": "/(.*)", "dest": "frontend/index/index.html" },
-     { "src": "/login", "dest": "frontend/login/login.html" },
-    { "src": "/dashboard", "dest": "frontend/dashboard/dashboard.html" },
-    { "src": "/cadastro", "dest": "frontend/cadastro/cadastro.html" },
-    { "src": "/", "dest": "frontend/login/login.html" }
-  ]
-}
+
