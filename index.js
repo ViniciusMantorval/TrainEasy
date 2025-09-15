@@ -5,7 +5,7 @@ const multer = require('multer');
 //const ffmpeg = require('fluent-ffmpeg');
 const fs = require('fs');
 const axios = require('axios');
-const vosk = require('vosk');
+//const vosk = require('vosk');
 const path = require('path');
 
 const port = process.env.MYSQLPORT || 3000;
@@ -1336,6 +1336,7 @@ app.get('/download/:filename', (req, res) => {
 app.listen(port, () => {
   console.log(`Servidor rodando em http://10.0.0.87:${port}`);
 });
+
 
 
 
