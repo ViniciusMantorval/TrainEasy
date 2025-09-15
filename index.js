@@ -8,11 +8,13 @@ const axios = require('axios');
 const vosk = require('vosk');
 const path = require('path');
 
-require('dotenv').config({ path: 'OPENROUTER_API_KEY.env' }); // Caminho para o arquivo .env
-const API_KEY = process.env.OPENROUTER_API_KEY;
+const port = process.env.MYSQLPORT || 3000;
+
+//require('dotenv').config({ path: 'OPENROUTER_API_KEY.env' }); // Caminho para o arquivo .env
+//const API_KEY = process.env.OPENROUTER_API_KEY;
 
 const app = express();
-const port = 3000;
+
 
 const cors = require('cors');
 
@@ -21,10 +23,10 @@ app.use(express.json());
 
 // Conexão com o banco
 const db = mysql.createConnection({
-  host: '127.0.0.1',
-  user: 'sktec',               // seu usuário do MySQL
-  password: 'tootsi',               // coloque sua senha correta
-  database: 'traineasy'
+  host: process.env.MYSQLHOST,
+  user: process.env.MYSQLUSER,               // seu usuário do MySQL
+  password: 'process.env.MYSQLPASSWORD,               // coloque sua senha correta
+  database: process.env.MYSQLDB
 });
 db.connect(err => {
   if (err) {
@@ -1514,4 +1516,5 @@ app.get('/download/:filename', (req, res) => {
 app.listen(port, () => {
   console.log(`Servidor rodando em http://10.0.0.87:${port}`);
 });
+
 
