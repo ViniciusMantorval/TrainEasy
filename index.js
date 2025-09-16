@@ -22,7 +22,7 @@ app.use(cors());
 app.use(express.json());
 
 // Conexão com o banco
-const db = mysql.createConnection({
+const db = mysql.createPool({
   host: process.env.MYSQLHOST,
   user: process.env.MYSQLUSER,               // seu usuário do MySQL
   password: process.env.MYSQLPASSWORD,               // coloque sua senha correta
@@ -1336,6 +1336,7 @@ app.get('/download/:filename', (req, res) => {
 app.listen(port, () => {
   console.log(`Servidor rodando em http://10.0.0.87:${port}`);
 });
+
 
 
 
