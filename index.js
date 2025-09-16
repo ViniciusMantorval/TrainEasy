@@ -15,7 +15,6 @@ const port = process.env.PORT || 3000;
 
 const app = express();
 
-
 const cors = require('cors');
 
 app.use(cors());
@@ -119,12 +118,10 @@ app.post('/departamentos', (req, res) => {
     res.send('Empresa cadastrada com sucesso!');
   });
 });
-
+app.use(express.static(path.join(__dirname, 'index')));
 app.get('/', (req, res) => {
-  res.send('root')
   console.error('ACESSOU ROOT');
-
-
+  res.sendFile(path.join(__dirname, 'index', 'index.html'));
 })
 
 // list empresas
@@ -1329,6 +1326,7 @@ app.get('/download/:filename', (req, res) => {
 app.listen(port, () => {
   console.log(`Servidor rodando em http://10.0.0.87:${port}`);
 });
+
 
 
 
