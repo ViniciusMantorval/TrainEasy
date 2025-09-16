@@ -118,10 +118,14 @@ app.post('/departamentos', (req, res) => {
     res.send('Empresa cadastrada com sucesso!');
   });
 });
-app.use(express.static(path.join(__dirname, 'index')));
+
+const frontendPath = path.join(__dirname, 'frontend');
+
+app.use(express.static(frontendPath));
+app.use(express.static(path.join(frontendPath, 'index')));
 app.get('/', (req, res) => {
   console.error('ACESSOU ROOT');
-  res.sendFile(path.join(__dirname, 'index', 'index.html'));
+  res.sendFile(path.join(frontendPath, 'index', 'index.html'));
 })
 
 // list empresas
@@ -1326,6 +1330,7 @@ app.get('/download/:filename', (req, res) => {
 app.listen(port, () => {
   console.log(`Servidor rodando em http://10.0.0.87:${port}`);
 });
+
 
 
 
