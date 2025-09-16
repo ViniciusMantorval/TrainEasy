@@ -25,7 +25,7 @@ app.use(express.json());
 const db = mysql.createConnection({
   host: process.env.MYSQLHOST,
   user: process.env.MYSQLUSER,               // seu usuário do MySQL
-  password: 'process.env.MYSQLPASSWORD,               // coloque sua senha correta
+  password: process.env.MYSQLPASSWORD,               // coloque sua senha correta
   database: process.env.MYSQLDB
 });
 db.connect(err => {
@@ -1336,6 +1336,7 @@ app.get('/download/:filename', (req, res) => {
 app.listen(port, () => {
   console.log(`Servidor rodando em http://10.0.0.87:${port}`);
 });
+
 
 
 
