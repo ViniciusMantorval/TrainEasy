@@ -28,13 +28,6 @@ const db = mysql.createPool({
   password: process.env.MYSQLPASSWORD,               // coloque sua senha correta
   database: process.env.MYSQLDB
 });
-db.connect(err => {
-  if (err) {
-    console.error('Erro ao conectar ao MySQL:', err);
-    return;
-  }
-  console.log('Conectado ao banco de dados traineasy');
-});
 
 // Configurando onde salvar o vídeo
 const storage = multer.diskStorage({
@@ -1336,6 +1329,7 @@ app.get('/download/:filename', (req, res) => {
 app.listen(port, () => {
   console.log(`Servidor rodando em http://10.0.0.87:${port}`);
 });
+
 
 
 
