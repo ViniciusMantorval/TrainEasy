@@ -25,7 +25,7 @@ document.addEventListener("DOMContentLoaded", () => {
         senha: data.senha,
         cnpj: data.cnpj
       };
-      url = 'http://traineasy.selfip.com:3000/empresas';
+      url = 'calm-charisma-production.up.railway.app/empresas';
 
     try {
       const response = await fetch(url, {
@@ -47,3 +47,4 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 });
+
