@@ -8,7 +8,7 @@ const axios = require('axios');
 
 const path = require('path');
 
-const port = process.env.MYSQLPORT || 3000;
+const port = process.env.PORT || 3000;
 
 //require('dotenv').config({ path: 'OPENROUTER_API_KEY.env' }); // Caminho para o arquivo .env
 //const API_KEY = process.env.OPENROUTER_API_KEY;
@@ -1336,6 +1336,7 @@ app.get('/download/:filename', (req, res) => {
 app.listen(port, () => {
   console.log(`Servidor rodando em http://10.0.0.87:${port}`);
 });
+
 
 
 
