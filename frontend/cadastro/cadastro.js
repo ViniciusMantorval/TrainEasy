@@ -25,7 +25,7 @@ document.addEventListener("DOMContentLoaded", () => {
         senha: data.senha,
         cnpj: data.cnpj
       };
-      url = 'calm-charisma-production.up.railway.app/empresas';
+      url = 'https://traineasy.up.railway.app/empresas';
 
     try {
       const response = await fetch(url, {
@@ -47,4 +47,5 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 });
+
 
