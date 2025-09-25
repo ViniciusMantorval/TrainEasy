@@ -405,7 +405,7 @@ async function loadTrainings() {
   try {
     showLoadingOverlay();
     
-    const res = await fetch(`http://traineasy.selfip.com:3000/treinamentos?id_funcionario=${userId}`);
+    const res = await fetch(`https://traineasy.up.railway.app/treinamentos?id_funcionario=${userId}`);
     const treinamentos = await res.json();
     
     console.log(treinamentos);
@@ -459,7 +459,7 @@ async function loadTrainings() {
 async function fillDashboarInfo() {
   const userId = sessionStorage.getItem("id_funcionario");
 
-  const res = await fetch(`http://traineasy.selfip.com:3000/fill_dashboard_funcionario?id=${userId}`);
+  const res = await fetch(`https://traineasy.up.railway.app/fill_dashboard_funcionario?id=${userId}`);
   const response = await res.json();
   const totalTrainings = document.getElementById("totalTrainings");
   const totalCertificates = document.getElementById("totalCertificates");
@@ -476,4 +476,5 @@ function abrirTreinamento(id) {
   showNotification('Abrindo treinamento...', 'info');
   window.location.href = `../treinamento/treinamento.html?id=${id}`;
 }
+
 
