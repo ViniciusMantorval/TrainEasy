@@ -159,7 +159,7 @@ function setupEventListeners() {
 async function loadUserData() {
   const id_empresa = localStorage.getItem("id_empresa")
   try {
-    const response = await fetch(`http://traineasy.selfip.com:3000/empresa_data?id=${id_empresa}`); // rota do backend
+    const response = await fetch(`https://traineasy.up.railway.app/empresa_data?id=${id_empresa}`); // rota do backend
 
     const data = await response.json();
 
@@ -371,7 +371,7 @@ function setActiveMenuItem(element) {
 async function animateStats() {
   const id_empresa = sessionStorage.getItem('id_empresa')
   const statElements = document.querySelectorAll('.stat-content h3');
-  const response = await fetch(`http://traineasy.selfip.com:3000/fill_dashboard_empresa?id=${id_empresa}`); // rota do backend
+  const response = await fetch(`https://traineasy.up.railway.app/fill_dashboard_empresa?id=${id_empresa}`); // rota do backend
 
   const data = await response.json();
   console.log(data);
@@ -843,6 +843,7 @@ document.head.insertAdjacentHTML('beforeend', additionalCSS);
 setTimeout(() => {
   renderNotifications();
 }, 100);
+
 
 
   
