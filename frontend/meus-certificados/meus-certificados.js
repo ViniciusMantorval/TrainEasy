@@ -402,7 +402,7 @@ function handleWindowResize() {
 async function carregarCertificados() {
   const userId = sessionStorage.getItem("id_funcionario");
 
-  const res = await fetch(`http://traineasy.selfip.com:3000/certificados/${userId}`);
+  const res = await fetch(`https://traineasy.up.railway.app/certificados/${userId}`);
   const certificados = await res.json();
 
   const container = document.getElementById("lista-certificados");
@@ -417,7 +417,7 @@ async function carregarCertificados() {
     titulo.innerText = cert.nomeTreinamento;
 
     const imagem = document.createElement("img");
-    imagem.src = `http://traineasy.selfip.com:3000${cert.imagem}`; // já contém /uploads/
+    imagem.src = `https://traineasy.up.railway.app${cert.imagem}`; // já contém /uploads/
     imagem.alt = "Certificado";
     imagem.style.maxWidth = "200px";
     imagem.style.display = "block";
@@ -425,11 +425,11 @@ async function carregarCertificados() {
 
     const btnVisualizar = document.createElement("button");
     btnVisualizar.innerText = "Visualizar";
-    btnVisualizar.addEventListener("click", () => visualizarCertificado(`http://traineasy.selfip.com:3000${cert.imagem}`));
+    btnVisualizar.addEventListener("click", () => visualizarCertificado(`https://traineasy.up.railway.app${cert.imagem}`));
 
     const btnBaixar = document.createElement("button");
     btnBaixar.innerText = "Baixar";
-    btnBaixar.addEventListener("click", () => baixarCertificado(`http://traineasy.selfip.com:3000${cert.imagem}`, cert.nomeTreinamento));
+    btnBaixar.addEventListener("click", () => baixarCertificado(`https://traineasy.up.railway.app${cert.imagem}`, cert.nomeTreinamento));
 
     // Adiciona elementos ao card
     card.appendChild(titulo);
@@ -448,7 +448,7 @@ function visualizarCertificado(src) {
 function baixarCertificado(src, nome) {
   // src vem como "/uploads/arquivo.png"
   const filename = src.split("/").pop();
-  window.location.href = `http://traineasy.selfip.com:3000/download/${filename}`;
+  window.location.href = `https://traineasy.up.railway.app/download/${filename}`;
 }
 
 
@@ -464,7 +464,7 @@ function baixarCertificado(src, nome) {
 //   try {
 //     showLoadingOverlay();
 
-//     const res = await fetch(`http://traineasy.selfip.com:3000/certificados?id_funcionario=${userId}`);
+//     const res = await fetch(`https://traineasy.up.railway.app/certificados?id_funcionario=${userId}`);
 //     const certificados = await res.json();
 
 //     container.innerHTML = ''; // Limpar container
