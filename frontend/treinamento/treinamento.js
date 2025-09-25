@@ -382,7 +382,7 @@ async function loadTrainingData() {
   console.log(id_treinamento, id_funcionario);
   
   try {
-    const response = await fetch('http://traineasy.selfip.com:3000/status', {
+    const response = await fetch('https://traineasy.up.railway.app/status', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ id_treinamento, id_funcionario })
@@ -392,7 +392,7 @@ async function loadTrainingData() {
   
     if (data.exists == false) {
       // Faça o fetch para criar um novo status aqui
-      await fetch('http://traineasy.selfip.com:3000/criar_progresso', {
+      await fetch('https://traineasy.up.railway.app/criar_progresso', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ id_treinamento, id_funcionario })
@@ -405,7 +405,7 @@ async function loadTrainingData() {
   }
   
   try {
-    const res = await fetch(`http://traineasy.selfip.com:3000/treinamento/${id_treinamento}`);
+    const res = await fetch(`https://traineasy.up.railway.app/treinamento/${id_treinamento}`);
     const treinamento = await res.json();
 
     console.log(treinamento);
@@ -549,7 +549,7 @@ async function loadTrainingData() {
             resultadoTexto.textContent = `Você acertou ${pontuacao} de ${quiz.length} questões.`;
             
             // Enviar pontuação para o servidor
-            await fetch('http://traineasy.selfip.com:3000/pagamento', {
+            await fetch('https://traineasy.up.railway.app/pagamento', {
               method: 'PATCH',
               headers: {
                 'Content-Type': 'application/json'
@@ -608,7 +608,7 @@ async function loadTrainingData() {
               formData.append("certificado", blob, "certificado.png");
 
               
-              await fetch('http://traineasy.selfip.com:3000/finalizar_progresso', {
+              await fetch('https://traineasy.up.railway.app/finalizar_progresso', {
                 method: 'PATCH',
                 body:formData
               });
@@ -627,4 +627,5 @@ async function loadTrainingData() {
     showNotification('Erro ao carregar dados do treinamento', 'error');
   }
 }
+
 
