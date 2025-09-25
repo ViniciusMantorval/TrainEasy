@@ -6,7 +6,7 @@ document.getElementById('loginForm').addEventListener('submit', async (e) => {
 
     try {
 
-      const response = await fetch('http://traineasy.selfip.com:3000/login', {
+      const response = await fetch('traineasy.up.railway.app/login', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(data)
@@ -42,3 +42,4 @@ document.getElementById('loginForm').addEventListener('submit', async (e) => {
     }
   });
 //        localStorage.setItem("idEMP", "id");
+
