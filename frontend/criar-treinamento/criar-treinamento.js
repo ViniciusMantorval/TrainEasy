@@ -483,9 +483,9 @@ document.addEventListener("DOMContentLoaded", () => {
                             Conteúdo:
                         </label>`;
             if (Array.isArray(t.conteudo)) {
-                html += `<textarea id="conteudo_${i}" name="conteudo_${i}" class="form-textarea" rows="3">${t.conteudo.join("\n")}</textarea>`;
+                html += `<textarea id="conteudo_${i}" name="conteudo_${i}" class="form-textarea" rows="3">${t.conteudo.join("\n")}</text.area>`;
             } else {
-                html += `<textarea id="conteudo_${i}" name="conteudo_${i}" class="form-textarea" rows="3">${t.conteudo}</textarea>`;
+                html += `<textarea id="conteudo_${i}" name="conteudo_${i}" class="form-textarea" ro.ws="3">${t.conteudo}</textarea>`;
             }
             html += "</div></div>";
         });
@@ -593,7 +593,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 data_encerramento
             };
   
-            fetch("http://traineasy.selfip.com:3000/salvar-treinamento", {
+            fetch("https://traineasy.up.railway.app/salvar-treinamento", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify(data)
@@ -629,4 +629,5 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
   
+
   
