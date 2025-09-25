@@ -369,7 +369,7 @@ async function loadTrainings() {
   try {
     showLoadingOverlay();
     
-    const res = await fetch(`http://traineasy.selfip.com:3000/treinamentos_empresa?id_empresa=${userId}`);
+    const res = await fetch(`https://traineasy.up.railway.app/treinamentos_empresa?id_empresa=${userId}`);
     const treinamentos = await res.json();
     
     console.log(treinamentos);
@@ -437,7 +437,7 @@ async function removerTreinamento(id) {
   try {
     showLoadingOverlay();
     
-    const response = await fetch('http://traineasy.selfip.com:3000/removerTreinamento', {
+    const response = await fetch('https://traineasy.up.railway.app/removerTreinamento', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
@@ -462,4 +462,5 @@ async function removerTreinamento(id) {
     hideLoadingOverlay();
   }
 }
+
 
