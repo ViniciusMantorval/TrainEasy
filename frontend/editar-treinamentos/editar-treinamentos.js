@@ -59,7 +59,7 @@ async function loadTraining() {
     try {
         showLoadingState();
         
-        const res = await fetch(`http://traineasy.selfip.com:3000/list_edit_treinamento/${id_treinamento}`);
+        const res = await fetch(`https://traineasy.up.railway.app/list_edit_treinamento/${id_treinamento}`);
         const treinamentos = await res.json();
         
         hideLoadingState();
@@ -225,7 +225,7 @@ async function salvarTreinamentoGerado() {
             quiz: quiz
         };
 
-        const res = await fetch(`http://traineasy.selfip.com:3000/update_treinamento/${id_treinamento}`, {
+        const res = await fetch(`https://traineasy.up.railway.app/update_treinamento/${id_treinamento}`, {
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json'
@@ -741,4 +741,5 @@ function closeNotification(button) {
     }, 300);
   }
 }
+
 
