@@ -25,7 +25,7 @@ const db = mysql.createPool({
   host: process.env.MYSQLHOST,
   user: process.env.MYSQLUSER,               // seu usuário do MySQL
   password: process.env.MYSQLPASSWORD,               // coloque sua senha correta
-  database: process.env.MYSQLDB,
+  database: process.env.MYSQLDATABASE,
   port:process.env.MYSQLPORT
 });
 
@@ -1331,6 +1331,7 @@ app.get('/download/:filename', (req, res) => {
 app.listen(port, () => {
   console.log(`Servidor rodando em http://10.0.0.87:${port}`);
 });
+
 
 
 
