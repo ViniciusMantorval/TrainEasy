@@ -1,6 +1,6 @@
 // Configuração da API
 const API_CONFIG = {
-  baseURL: 'http://traineasy.selfip.com:3000',
+  baseURL: 'https://traineasy.up.railway.app/empresas',
   endpoints: {
     criarRecompensa: '/criar-recompensas'
   },
@@ -524,4 +524,5 @@ if (document.readyState === 'loading') {
 //   window.RecompensaApp = RecompensaApp;
 //   window.Utils = Utils;
 // }
+
 
