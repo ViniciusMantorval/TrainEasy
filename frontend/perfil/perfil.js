@@ -88,7 +88,7 @@ const certificatesData = [
 
 async function fetchUserData() {
     try {
-        const res = await fetch(`http://traineasy.selfip.com:3000/fill_profile?id=${id}&tipo=${tipo}`);
+        const res = await fetch(`https://traineasy.up.railway.app/fill_profile?id=${id}&tipo=${tipo}`);
                 const data = await res.json();
                 userData = { ...userData, ...data };
                 console.log("Dados de usuário carregado:", userData);
@@ -99,7 +99,7 @@ async function fetchUserData() {
 
 async function fetchCourseData() {
     try {
-        const res = await fetch(`http://traineasy.selfip.com:3000/courses?id=${id}&tipo=${tipo}`);
+        const res = await fetch(`https://traineasy.up.railway.app/courses?id=${id}&tipo=${tipo}`);
                 const data = await res.json();
                 // O API não retorna 'bio', 'avatar' e 'banner', então vamos fundir os dados.
                 if (Array.isArray(data)) {
@@ -222,7 +222,7 @@ async function animateCounters() {
 
     let targets = ['0', '0', '0', '0'];
     try {
-        const res = await fetch(`http://traineasy.selfip.com:3000/courses_statistics?id=${id}&tipo=${tipo}`);
+        const res = await fetch(`https://traineasy.up.railway.app/courses_statistics?id=${id}&tipo=${tipo}`);
         const data = await res.json();
         console.log(data);
         if (data) {
@@ -997,4 +997,5 @@ const additionalCSS = `
 
 // Injetar CSS adicional
 document.head.insertAdjacentHTML('beforeend', additionalCSS);
+
 
