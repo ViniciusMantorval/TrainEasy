@@ -30,7 +30,7 @@ document.addEventListener("DOMContentLoaded", async () => {
   lista.innerHTML = '';
 
   try {
-    const response = await fetch('http://traineasy.selfip.com:3000/list_departamento', {
+    const response = await fetch('https://traineasy.up.railway.app/list_departamento', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ id_empresa })
@@ -155,7 +155,7 @@ async function salvarEdicao(event) {
   const userData = { id, nome, descritivo };
 
   try {
-    const response = await fetch('http://traineasy.selfip.com:3000/editarDepartamento', {
+    const response = await fetch('https://traineasy.up.railway.app/editarDepartamento', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(userData)
@@ -203,7 +203,7 @@ form.addEventListener('submit', async (e) => {
   };
 
   try {
-    const response = await fetch('http://traineasy.selfip.com:3000/departamentos', {
+    const response = await fetch('https://traineasy.up.railway.app/departamentos', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(userData)
@@ -771,4 +771,5 @@ function showConfirmModal(title, message, onConfirm) {
     }
   });
 }
+
 
