@@ -422,13 +422,13 @@ async function loadMarketData() {
     showLoadingOverlay();
 
     // Buscar pontos do funcionário
-    const resPontos = await fetch(`http://traineasy.selfip.com:3000/pontos?id_funcionario=${userId}`);
+    const resPontos = await fetch(`https://traineasy.up.railway.app/pontos?id_funcionario=${userId}`);
     const dados = await resPontos.json();
     pontos = dados.pontos || 0;
     pontosElement.innerText = `Você possui ${formatNumber(pontos)} pontos disponíveis.`;
 
     // Buscar recompensas
-    const resRecompensas = await fetch(`http://traineasy.selfip.com:3000/recompensas?id_funcionario=${userId}`);
+    const resRecompensas = await fetch(`https://traineasy.up.railway.app/recompensas?id_funcionario=${userId}`);
     const recompensas = await resRecompensas.json();
 
     // Limpar container
@@ -476,7 +476,7 @@ async function loadMarketData() {
           try {
             showLoadingOverlay();
             
-            const res = await fetch("http://traineasy.selfip.com:3000/resgatar", {
+            const res = await fetch("https://traineasy.up.railway.app/resgatar", {
               method: "POST",
               headers: { "Content-Type": "application/json" },
               body: JSON.stringify({
@@ -534,4 +534,5 @@ async function loadMarketData() {
     hideLoadingOverlay();
   }
 }
+
 
