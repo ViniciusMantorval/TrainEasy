@@ -424,7 +424,7 @@ form.addEventListener('submit', async (e) => {
     senha: data.senha,
     nome: data.nome
   };
-  url = 'http://traineasy.selfip.com:3000/funcionarios';
+  url = 'https://traineasy.up.railway.app/funcionarios';
 
   try {
     const response = await fetch(url, {
@@ -468,7 +468,7 @@ async function loadEmployees() {
   lista.innerHTML = '';
 
   try {
-    const response = await fetch('http://traineasy.selfip.com:3000/list_funcionarios', {
+    const response = await fetch('https://traineasy.up.railway.app/list_funcionarios', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ id: id })
@@ -574,7 +574,7 @@ async function deleteEmployee(id, nome) {
   showLoadingOverlay();
   
   try {
-    const response = await fetch('http://traineasy.selfip.com:3000/deletar_funcionario', {
+    const response = await fetch('https://traineasy.up.railway.app/deletar_funcionario', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ id: id })
@@ -615,7 +615,7 @@ async function salvarEdicaoFuncionario(event) {
   if (senha) userData.senha = senha;
 
   try {
-    const response = await fetch('http://traineasy.selfip.com:3000/editar_funcionario', {
+    const response = await fetch('https://traineasy.up.railway.app/editar_funcionario', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(userData)
@@ -646,7 +646,7 @@ async function loadDepartmentInfo() {
   }
 
   try {
-    const response = await fetch('http://traineasy.selfip.com:3000/get_departamento', {
+    const response = await fetch('https://traineasy.up.railway.app/get_departamento', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ id: id_departamento })
@@ -805,4 +805,5 @@ function showNotification(message, type = 'info') {
     }, 300);
   }, 5000);
 }
+
 
