@@ -407,7 +407,7 @@ async function loadStatistics() {
   try {
     showLoadingOverlay();
     
-    const res = await fetch(`http://traineasy.selfip.com:3000/api/estatisticas?id_empresa=${idEmpresa}`);
+    const res = await fetch(`https://traineasy.up.railway.app/api/estatisticas?id_empresa=${idEmpresa}`);
     
     if (!res.ok) {
       throw new Error(`Erro HTTP: ${res.status}`);
@@ -647,4 +647,5 @@ function viewTrainingDetails(id) {
 function editTraining(id) {
   showNotification(`Editando treinamento ${id}...`, 'info');
 }
+
 
