@@ -110,7 +110,7 @@ async function salvarEdicao(event) {
   };
 
   try {
-    const response = await fetch('http://traineasy.selfip.com:3000/editarEmpresa', {
+    const response = await fetch('https://traineasy.up.railway.app/editarEmpresa', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
@@ -133,3 +133,4 @@ function cancelarEdicao() {
   document.getElementById("linha-edicao").style.display = "none";
 
 }
+
