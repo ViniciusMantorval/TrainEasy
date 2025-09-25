@@ -373,7 +373,7 @@ async function carregarRecompensas() {
       </div>
     `;
 
-    const res = await fetch(`http://traineasy.selfip.com:3000/recompensas?id_empresa=${id_empresa}`);
+    const res = await fetch(`https://traineasy.up.railway.app/recompensas?id_empresa=${id_empresa}`);
     const recompensas = await res.json();
 
     lista.innerHTML = "";
@@ -455,7 +455,7 @@ async function carregarRecompensas() {
 
           try {
             showLoadingOverlay();
-            const res = await fetch(`http://traineasy.selfip.com:3000/recompensas/${r.id_recompensa}`, {
+            const res = await fetch(`https://traineasy.up.railway.app/recompensas/${r.id_recompensa}`, {
               method: "PUT",
               headers: { "Content-Type": "application/json" },
               body: JSON.stringify(atualizados)
@@ -482,7 +482,7 @@ async function carregarRecompensas() {
 
           try {
             showLoadingOverlay();
-            const res = await fetch(`http://traineasy.selfip.com:3000/recompensas/${r.id_recompensa}`, {
+            const res = await fetch(`https://traineasy.up.railway.app/recompensas/${r.id_recompensa}`, {
               method: "DELETE"
             });
 
@@ -569,4 +569,5 @@ function adicionarNovaRecompensa() {
   showNotification('Redirecionando para criação de recompensa...', 'info');
   window.location.href = "../criar-recompensa/criar-recompensa.html";
 }
+
 
