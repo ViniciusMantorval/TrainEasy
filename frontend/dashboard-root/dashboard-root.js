@@ -8,7 +8,7 @@ e.preventDefault();
 
   try {
 
-    const response = await fetch('http://traineasy.selfip.com:3000/list_empresas', {
+    const response = await fetch('https://traineasy.up.railway.app/list_empresas', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(data)
@@ -131,4 +131,5 @@ async function salvarEdicao(event) {
 
 function cancelarEdicao() {
   document.getElementById("linha-edicao").style.display = "none";
+
 }
