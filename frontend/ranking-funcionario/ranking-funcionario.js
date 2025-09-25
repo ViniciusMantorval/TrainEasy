@@ -30,7 +30,7 @@ let notifications = [
 
 // Configuração da API (mantendo a original)
 const API_CONFIG = {
-  baseURL: 'http://traineasy.selfip.com:3000',
+  baseURL: 'https://traineasy.up.railway.app',
   endpoints: {
     ranking: '/ranking'
   },
@@ -873,4 +873,5 @@ if (window.location.hostname === 'localhost' || window.location.hostname === '12
   window.RankingApp = RankingApp;
   window.Utils = Utils;
 }
+
 
